@@ -1,8 +1,8 @@
 import ProjectDescription
 
 let nameAttribute = Template.Attribute.required("name")
-let bundleIdAttribute = Template.Attribute.optional("bundle-id", default: "kr.company.{{ name }}")
-let organizationNameAttribute = Template.Attribute.optional("organization-name", default: "{{ name }}")
+let bundleIdAttribute = Template.Attribute.optional("bundle-id", default: "kr.company.app")
+let organizationNameAttribute = Template.Attribute.optional("organization-name", default: "company")
 
 let template = Template(
     description: "Tuist Multi-Module iOS Project Template",
@@ -28,13 +28,13 @@ let template = Template(
         
         // Build Configurations
         .directory(
-            path: "BuildConfigurations",
+            path: ".",
             sourcePath: "BuildConfigurations"
         ),
         
         // Tuist ProjectDescriptionHelpers
         .directory(
-            path: "Tuist/ProjectDescriptionHelpers",
+            path: "Tuist/",
             sourcePath: "Tuist/ProjectDescriptionHelpers"
         ),
         .file(
@@ -47,17 +47,23 @@ let template = Template(
             path: "Projects/Application/Project.swift",
             templatePath: "Projects/Application/Project.stencil"
         ),
-        .directory(
-            path: "Projects/Application/Sources",
-            sourcePath: "Projects/Application/Sources"
+        // Application Sources
+        .file(
+            path: "Projects/Application/Sources/{{ name }}App.swift",
+            templatePath: "Projects/Application/Sources/App.stencil"
+        ),
+        .file(
+            path: "Projects/Application/Sources/ContentView.swift",
+            templatePath: "Projects/Application/Sources/ContentView.stencil"
         ),
         .directory(
-            path: "Projects/Application/Resources",
+            path: "Projects/Application/",
             sourcePath: "Projects/Application/Resources"
         ),
-        .directory(
-            path: "Projects/Application/Tests",
-            sourcePath: "Projects/Application/Tests"
+        // Application Tests
+        .file(
+            path: "Projects/Application/Tests/{{ name }}Tests.swift",
+            templatePath: "Projects/Application/Tests/Tests.stencil"
         ),
         
         // Framework Modules
@@ -66,24 +72,32 @@ let template = Template(
             templatePath: "Projects/Modules/DIKit/Project.stencil"
         ),
         .directory(
-            path: "Projects/Modules/DIKit/Sources",
+            path: "Projects/Modules/DIKit/",
+            sourcePath: "Projects/Modules/DIKit/Resources"
+        ),
+        .directory(
+            path: "Projects/Modules/DIKit/",
             sourcePath: "Projects/Modules/DIKit/Sources"
         ),
         .directory(
-            path: "Projects/Modules/DIKit/Tests",
+            path: "Projects/Modules/DIKit/",
             sourcePath: "Projects/Modules/DIKit/Tests"
         ),
-        
+
         .file(
             path: "Projects/Modules/DataKit/Project.swift",
             templatePath: "Projects/Modules/DataKit/Project.stencil"
         ),
         .directory(
-            path: "Projects/Modules/DataKit/Sources",
+            path: "Projects/Modules/DataKit/",
+            sourcePath: "Projects/Modules/DataKit/Resources"
+        ),
+        .directory(
+            path: "Projects/Modules/DataKit/",
             sourcePath: "Projects/Modules/DataKit/Sources"
         ),
         .directory(
-            path: "Projects/Modules/DataKit/Tests",
+            path: "Projects/Modules/DataKit/",
             sourcePath: "Projects/Modules/DataKit/Tests"
         ),
         
@@ -92,11 +106,15 @@ let template = Template(
             templatePath: "Projects/Modules/DomainKit/Project.stencil"
         ),
         .directory(
-            path: "Projects/Modules/DomainKit/Sources",
+            path: "Projects/Modules/DomainKit/",
+            sourcePath: "Projects/Modules/DomainKit/Resources"
+        ),
+        .directory(
+            path: "Projects/Modules/DomainKit/",
             sourcePath: "Projects/Modules/DomainKit/Sources"
         ),
         .directory(
-            path: "Projects/Modules/DomainKit/Tests",
+            path: "Projects/Modules/DomainKit/",
             sourcePath: "Projects/Modules/DomainKit/Tests"
         ),
         
@@ -105,11 +123,15 @@ let template = Template(
             templatePath: "Projects/Modules/FoundationKit/Project.stencil"
         ),
         .directory(
-            path: "Projects/Modules/FoundationKit/Sources",
+            path: "Projects/Modules/FoundationKit/",
+            sourcePath: "Projects/Modules/FoundationKit/Resources"
+        ),
+        .directory(
+            path: "Projects/Modules/FoundationKit/",
             sourcePath: "Projects/Modules/FoundationKit/Sources"
         ),
         .directory(
-            path: "Projects/Modules/FoundationKit/Tests",
+            path: "Projects/Modules/FoundationKit/",
             sourcePath: "Projects/Modules/FoundationKit/Tests"
         ),
         
@@ -118,11 +140,15 @@ let template = Template(
             templatePath: "Projects/Modules/PresentationKit/Project.stencil"
         ),
         .directory(
-            path: "Projects/Modules/PresentationKit/Sources",
+            path: "Projects/Modules/PresentationKit/",
+            sourcePath: "Projects/Modules/PresentationKit/Resources"
+        ),
+        .directory(
+            path: "Projects/Modules/PresentationKit/",
             sourcePath: "Projects/Modules/PresentationKit/Sources"
         ),
         .directory(
-            path: "Projects/Modules/PresentationKit/Tests",
+            path: "Projects/Modules/PresentationKit/",
             sourcePath: "Projects/Modules/PresentationKit/Tests"
         ),
         
@@ -131,17 +157,21 @@ let template = Template(
             templatePath: "Projects/Modules/ThirdPartyManager/Project.stencil"
         ),
         .directory(
-            path: "Projects/Modules/ThirdPartyManager/Sources",
+            path: "Projects/Modules/ThirdPartyManager/",
+            sourcePath: "Projects/Modules/ThirdPartyManager/Resources"
+        ),
+        .directory(
+            path: "Projects/Modules/ThirdPartyManager/",
             sourcePath: "Projects/Modules/ThirdPartyManager/Sources"
         ),
         .directory(
-            path: "Projects/Modules/ThirdPartyManager/Tests",
+            path: "Projects/Modules/ThirdPartyManager/",
             sourcePath: "Projects/Modules/ThirdPartyManager/Tests"
         ),
         
         // Scripts
         .directory(
-            path: "Scripts",
+            path: ".",
             sourcePath: "Scripts"
         )
     ]

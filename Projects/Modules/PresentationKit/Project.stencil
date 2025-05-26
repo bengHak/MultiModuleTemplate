@@ -8,7 +8,8 @@ let frameworkTargets: [Target] = FrameworkFactory(
         frameworkDependencies: [
             Dep.Project.DIKit,
             Dep.Project.DomainKit,
-            Dep.Project.FoundationKit
+            Dep.Project.FoundationKit,
+            .SPM.ComposableArchitecture
         ],
         unitTestsDependencies: []
     )
@@ -28,6 +29,6 @@ let project = ProjectFactory(
 ).build(
     payload: .init(
         name: frameworkName,
-        organizationName: "{{ organizationName }}"
+        organizationName: "{{ organization-name }}"
     )
 )

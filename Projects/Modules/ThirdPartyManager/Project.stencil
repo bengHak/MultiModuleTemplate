@@ -28,6 +28,6 @@ let project = ProjectFactory(
 ).build(
     payload: .init(
         name: frameworkName,
-        organizationName: "{{ organizationName }}"
+        organizationName: "{{ organization-name }}"
     )
 )

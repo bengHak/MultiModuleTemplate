@@ -25,12 +25,13 @@ let appTargets: [Target] = AppFactory(
             Dep.Project.DataKit,
             Dep.Project.DomainKit,
             Dep.Project.PresentationKit,
+            Dep.Project.ThirdPartyManager,
         ],
         unitTestsDependencies: []
     )
 ).build(
     payload: AppFactory.Payload(
-        bundleID: "{{ bundleId }}",
+        bundleID: "{{ bundle-id }}",
         name: appName,
         destinations: .iOS,
         infoPlist: infoPlist
@@ -46,6 +47,6 @@ let project = ProjectFactory(
 ).build(
     payload: ProjectFactory.Payload(
         name: appName,
-        organizationName: "{{ organizationName }}"
+        organizationName: "{{ organization-name }}"
     )
 )
