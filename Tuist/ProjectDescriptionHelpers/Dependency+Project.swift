@@ -7,7 +7,7 @@
 
 import ProjectDescription
 
-extension TargetDependency {
+public extension TargetDependency {
     public struct Project {}
 }
 

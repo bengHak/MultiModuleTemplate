@@ -16,10 +16,6 @@ struct ContentView: View {
                     Text("{{ name }}")
                         .font(.title)
                         .fontWeight(.bold)
-                    
-                    Text("Multi-Module iOS App")
-                        .font(.subtitle)
-                        .foregroundColor(.secondary)
                 }
                 
                 // Module Overview
@@ -34,17 +30,6 @@ struct ContentView: View {
                     ModuleCard(title: "DataKit", description: "Data layer with Alamofire", icon: "externaldrive.fill")
                     ModuleCard(title: "PresentationKit", description: "UI components with TCA", icon: "paintbrush.fill")
                 }
-                
-                // Sample TCA Feature
-                NavigationLink("View TCA Sample") {
-                    SampleView(
-                        store: Store(
-                            initialState: SampleFeature.State(),
-                            reducer: { SampleFeature() }
-                        )
-                    )
-                }
-                .buttonStyle(.borderedProminent)
                 
                 Spacer()
             }
